@@ -69,3 +69,44 @@ department: "Software Engineering"
 
 console.log(user1); // log user1 to console
  
+
+
+/*    ****EXERCISE 6****
+Challenge: Objects - Iterating with for... in: https://csx.codesmith.io/units/precourse-part-2/challenge-objects-iterating-with-for-in */
+
+const checkObj = {
+    oddNum: 1,
+    evenNum: 2,
+    foundNum: 5,
+    randomNum: 18
+  };
+  
+  const objToArray = [];
+ 
+  
+  for (var obj in checkObj) {
+    if (checkObj[obj] >= 2) {
+      objToArray.push(checkObj[obj]);
+    }
+  }  
+  
+
+/*    ****EXERCISE 7****
+Challenge: Objects - Iterating with a for loop: https://csx.codesmith.io/units/precourse-part-2/challenge-objects-iterating-with-for-loop*/
+
+const checkObj = {
+    oddNum: 1,
+    evenNum: 2,
+    foundNum: 5,
+    randomNum: 18
+  };
+  
+  let divBy6 = false;
+  
+  const objToArray = Object.values(checkObj)
+  
+  for (var num = 0; num < objToArray.length; num++) {
+    if (num % 6 === 0) {
+      divBy6 = true;
+    }
+  }
