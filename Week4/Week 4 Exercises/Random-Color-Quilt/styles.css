@@ -1,0 +1,10 @@
+.square {
+    height: 50px;
+    width: 50px;
+    border: 5px solid grey;
+    border-radius: 10px;
+    display: inline-block;
+  }
+  .square {
+    background-color: rgb(25, 241, 84);
+  }
