@@ -3,11 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Space Battale</title>
+    <title>Space Battle</title>
       <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <section class="top">
+        <section class="stats">
+            <section class="alienStats">
+                <h3>Alien stats:</h3>
+                <span id="alienHull">HULL: </span>
+                <br>
+                <span id="alienFP">FIRE POWER: </span>
+                <br>
+                <span id="alienAcc">ACCURACY: </span>
+            </section>
+
+            <section class="myStats">
+                <h3>My stats:</h3>
+                <span id="myHull"> HULL: </span>
+                <br>
+                <span id="myFP"> FIRE POWER: </span>
+                <br>
+                <span id=" myAcc">ACCURACY: </span>
+            </section>
+        </section>
+    </section>
+
+    <section class="buttons">
+        <button type="submit" id="attack"> ATTACK!</button>
+        <button type="submit" id="retreat">Retreat</button>
+    </section>
 
     <!--JavaScript-->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"

@@ -13,7 +13,14 @@ const aliens = [];
         this.accuracy = accuracy;
 
         this.attack = () => {
-            console.log('Attack them!');
+            ussSchwarz.hull -= 1;
+            if (aliens[0].firepower > 0) {
+                aliens[0].firepower -= 1;
+            } 
+            console.log(`My Hull: ${ussSchwarz.hull}`);
+            console.log(`Alien's Firepower: ${aliens[0].firepower}`);
+            return;
+            
         };
 
 
@@ -39,8 +46,109 @@ const aliens = [];
  }
 
  createShips();
+console.log(ussSchwarz);
+//aliens[0].attack();
 
-aliens[0].attack();
+
+// ALIENS ATTACK ONE BY ONE AFTER HIT FIRST
+//if (alien[0].hull - 1)
+
+
+// ATTACK ALIEN SHIPS
+function attackEnemy() {
+
+
+    if (ussSchwarz.firepower > 0 && ussSchwarz.hull > 0) {
+
+        if (aliens.length > 0) {
+
+            if (aliens[0].hull > 0) {
+
+                alienInjury();
+                alert('You\'ve damaged their ship!');
+               
+            } else {
+
+                aliens.shift();
+                prompt(`Way to go! You've destroyed their ship!
+                Would you like to retreat?`);
+                if ( prompt.val() == 'yes'|| prompt.val() == 'y') {
+                    alert(`YOU'VE RETREATED! GAME OVER`);
+                } else if ( prompt.val() == 'no'|| prompt.val() == 'n') {
+                    alert(`OKAY! LET'S HEAD BACK IN!`);
+                }
+
+            }
+
+            powerDrain();
+        } else {
+            alert('Congrats! You\'ve WON!');
+        }
+    } else if (ussSchwarz.hull === 0) {
+        alert('Your Hull has been completely destroyed! GAME OVER');
+    } else if (ussSchwarz.firepower === 0) {
+        alert('You\'re all out of firepower! That sucks. GAME OVER');
+    }
+
+}
+
+const alienInjury = () => {
+    aliens[0].hull -= 1 ;
+    console.log(`Alien's Hull: ${aliens[0].hull}`);
+    return;
+}
+const powerDrain = () => {
+    ussSchwarz.firepower -= 1;
+    console.log(`My Firepower: ${ussSchwarz.firepower}`);
+    return;
+}
+
+function logStats() {
+    setTimeout(() => {
+        
+        console.log(aliens[0]);
+        console.log(ussSchwarz);
+    }, 2000);   
+}
+
+
+$('#attack').click(() => {
+    attackEnemy();
+
+    setTimeout(() => {
+        aliens[0].attack();
+    }, 3000);
+
+});
+
+
+// RESET GAME 
+
+$('#retreat').click(() => {
+    reset();
+});
+
+ function reset() {
+    console.log(ussSchwarz);
+    createShips();
+
+} 
+
+
+/**     for(let i = 0; i < aliens.length; i++){
+        let shipNumber = parseInt(aliens.indexOf(aliens[i]) + 1);
+        aliens[i].attack();
+        console.log(`Alien Ship ${shipNumber} attacked!`);
+    }*/
+//attackEnemy();
+
+
+
+
+
+
+
+
 
 
 
@@ -95,7 +203,9 @@ aliens[0].attack();
    *  * hull - between `3` and `6` * firepower - between `2` and `4` * accuracy - between `.6` and `.8`
    */
 
-
+function accuracy () {
+    
+}
    /**
     * You could be battling six alien ships each with unique values. Example use of **accuracy** to determine a hit:
     *  ```javascript 
